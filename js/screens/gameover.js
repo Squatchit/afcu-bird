@@ -52,9 +52,13 @@ game.GameOverScreen = me.ScreenObject.extend({
         me.game.world.addChild(this.ground2, 11);
 
         // share button
-        
+        var buttonsHeight = me.video.renderer.getHeight() / 2 + 200;
+        this.share = new Share(me.video.renderer.getWidth()/2 - 180, buttonsHeight);
+        me.game.world.addChild(this.share, 12);
 
         //tweet button
+        this.tweet = new Tweet(this.share.pos.x + 170, buttonsHeight);
+        me.game.world.addChild(this.tweet, 12);
 
         // add the dialog witht he game information
         if (game.data.newHiScore) {
@@ -74,8 +78,8 @@ game.GameOverScreen = me.ScreenObject.extend({
                 // renderable
                 this._super(me.Renderable, 'init', [0, 0, 100, 100]);
                 this.font = new me.Font('gamefont', 40, 'black', 'left');
-                this.steps = 'Score: ' + game.data.steps.toString();
-                this.topSteps= 'Top Score: ' + me.save.topSteps.toString();
+                this.steps = 'Steps: ' + game.data.steps.toString();
+                this.topSteps= 'Higher Step: ' + me.save.topSteps.toString();
             },
 
             draw: function (renderer) {
