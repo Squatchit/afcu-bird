@@ -229,7 +229,7 @@ game.TitleScreen = me.ScreenObject.extend({
             image: a
         }), me.game.world.addChild(this.logo, 10);
         me.pool.pull("me.Tween", this.logo.pos).to({
-            y: me.game.viewport.height / 2 - 100
+            y: me.game.viewport.height / 2 - 50
         }, 1e3).easing(me.Tween.Easing.Exponential.InOut).start();
         this.ground1 = me.pool.pull("ground", 0, me.video.renderer.getHeight() - 96), this.ground2 = me.pool.pull("ground", me.video.renderer.getWidth(), me.video.renderer.getHeight() - 96), me.game.world.addChild(this.ground1, 11), me.game.world.addChild(this.ground2, 11), me.game.world.addChild(new(me.Renderable.extend({
             init: function() {
