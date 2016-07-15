@@ -93,7 +93,7 @@ var BirdEntity = me.Entity.extend({
         update: function(a) {
             if (!game.data.start) return this._super(me.Entity, "update", [a]);
             if (me.input.isKeyPressed("fly")) {
-                me.audio.play("wing"), this.gravityForce = .01;
+                me.audio.play("wing"), this.gravityForce = .08;
                 var b = this.pos.y;
                 this.flyTween.stop(), this.flyTween.to({
                     y: b - 72
