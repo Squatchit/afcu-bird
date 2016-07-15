@@ -33,7 +33,7 @@ game.TitleScreen = me.ScreenObject.extend({
 
         var that = this;
         var logoTween = me.pool.pull("me.Tween", this.logo.pos)
-            .to({y: me.game.viewport.height/2 - 200}, 1000)
+            .to({y: me.game.viewport.height/2 - 100}, 5000)
             .easing(me.Tween.Easing.Exponential.InOut).start();
 
         this.ground1 = me.pool.pull("ground", 0, me.video.renderer.getHeight() - 96);
