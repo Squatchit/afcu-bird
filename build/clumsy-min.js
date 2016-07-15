@@ -88,19 +88,19 @@ game.resources = [{
 var BirdEntity = me.Entity.extend({
         init: function(a, b) {
             var c = {};
-            c.image = me.loader.getImage("clumsy"), c.width = 85, c.height = 60, c.framewidth = 85, c.frameheight = 60, this._super(me.Entity, "init", [a, b, c]), this.alwaysUpdate = !0, this.body.gravity = .2, this.gravityForce = .08, this.maxAngleRotation = Number.prototype.degToRad(30), this.maxAngleRotationDown = Number.prototype.degToRad(90), this.renderable.addAnimation("flying", [0, 1, 2]), this.renderable.addAnimation("idle", [0]), this.renderable.setCurrentAnimation("flying"), this.renderable.anchorPoint = new me.Vector2d(.1, .5), this.body.removeShapeAt(0), this.body.addShape(new me.Ellipse(5, 5, 71, 51)), this.flyTween = new me.Tween(this.pos), this.flyTween.easing(me.Tween.Easing.Exponential.InOut), this.endTween = null, this.collided = !1
+            c.image = me.loader.getImage("clumsy"), c.width = 85, c.height = 60, c.framewidth = 85, c.frameheight = 60, this._super(me.Entity, "init", [a, b, c]), this.alwaysUpdate = !0, this.body.gravity = .2, this.gravityForce = .01, this.maxAngleRotation = Number.prototype.degToRad(30), this.maxAngleRotationDown = Number.prototype.degToRad(90), this.renderable.addAnimation("flying", [0, 1, 2]), this.renderable.addAnimation("idle", [0]), this.renderable.setCurrentAnimation("flying"), this.renderable.anchorPoint = new me.Vector2d(.1, .5), this.body.removeShapeAt(0), this.body.addShape(new me.Ellipse(5, 5, 71, 51)), this.flyTween = new me.Tween(this.pos), this.flyTween.easing(me.Tween.Easing.Exponential.InOut), this.endTween = null, this.collided = !1
         },
         update: function(a) {
             if (!game.data.start) return this._super(me.Entity, "update", [a]);
             if (me.input.isKeyPressed("fly")) {
-                me.audio.play("wing"), this.gravityForce = .2;
+                me.audio.play("wing"), this.gravityForce = .02;
                 var b = this.pos.y;
                 this.flyTween.stop(), this.flyTween.to({
-                    y: b - 50
+                    y: b - 72
                 }, 50), this.flyTween.start(), this.renderable.angle = -this.maxAngleRotation
             } else this.gravityForce += .2, this.pos.y += me.timer.tick * this.gravityForce, this.renderable.angle += Number.prototype.degToRad(.5) * this.gravityForce, this.renderable.angle > this.maxAngleRotationDown && (this.renderable.angle = this.maxAngleRotationDown);
             me.Rect.prototype.updateBounds.apply(this);
-            var c = -60;
+            var c = -80;
             return this.pos.y <= c || this.collided ? (game.data.start = !1, me.audio.play("lose"), this.endAnimation(), !1) : (me.collision.check(this), this._super(me.Entity, "update", [a]), !0)
         },
         onCollision: function(a) {
