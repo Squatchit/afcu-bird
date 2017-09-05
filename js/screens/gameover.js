@@ -51,7 +51,7 @@ game.GameOverScreen = me.ScreenObject.extend({
         me.game.world.addChild(this.ground1, 11);
         me.game.world.addChild(this.ground2, 11);
 
-      
+       
 
         // add the dialog witht he game information
         if (game.data.newHiScore) {
