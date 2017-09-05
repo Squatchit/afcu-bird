@@ -60,8 +60,15 @@ game.resources = [{
     name: "new",
     type: "image",
     src: "data/img/new.png"
-}, 
-   {
+}, {
+    name: "share",
+    type: "image",
+    src: "data/img/share.png"
+}, {
+    name: "tweet",
+    type: "image",
+    src: "data/img/tweet.png"
+}, {
     name: "theme",
     type: "audio",
     src: "data/bgm/"
@@ -177,6 +184,36 @@ var BackgroundLayer = me.ImageLayer.extend({
         },
         update: function() {
             return me.input.isKeyPressed("mute") && (game.data.muted = !game.data.muted, game.data.muted ? me.audio.disable() : me.audio.enable()), !0
+        }
+    }),
+    Share = me.GUI_Object.extend({
+        init: function(a, b) {
+            var c = {};
+            c.image = "share", c.framewidth = 150, c.frameheight = 75, this._super(me.GUI_Object, "init", [a, b, c])
+        },
+        onClick: function(a) {
+            var b = "Just made " + game.data.steps + " steps on Clumsy Bird! Can you beat me? Try online here!",
+                c = "http://ellisonleao.github.io/clumsy-bird/";
+            return FB.ui({
+                method: "feed",
+                name: "My Clumsy Bird Score!",
+                caption: "Share to your friends",
+                description: b,
+                link: c,
+                picture: "http://ellisonleao.github.io/clumsy-bird/data/img/clumsy.png"
+            }), !1
+        }
+    }),
+    Tweet = me.GUI_Object.extend({
+        init: function(a, b) {
+            var c = {};
+            c.image = "tweet", c.framewidth = 152, c.frameheight = 75, this._super(me.GUI_Object, "init", [a, b, c])
+        },
+        onClick: function(a) {
+            var b = "Just made " + game.data.steps + " steps on Clumsy Bird! Can you beat me? Try online here!",
+                c = "http://ellisonleao.github.io/clumsy-bird/",
+                d = "clumsybird,melonjs";
+            return window.open("https://twitter.com/intent/tweet?text=" + b + "&hashtags=" + d + "&count=" + c + "&url=" + c, "Tweet!", "height=300,width=400"), !1
         }
     });
 game.TitleScreen = me.ScreenObject.extend({
