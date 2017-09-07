@@ -213,7 +213,6 @@ var BackgroundLayer = me.ImageLayer.extend({
             var b = "Just made " + game.data.steps + " steps on Clumsy Bird! Can you beat me? Try online here!",
                 c = "http://ellisonleao.github.io/clumsy-bird/",
                 d = "clumsybird,melonjs";
-            return window.open(), !1
         }
     });
 game.TitleScreen = me.ScreenObject.extend({
