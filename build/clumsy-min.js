@@ -189,7 +189,7 @@ var BackgroundLayer = me.ImageLayer.extend({
     Share = me.GUI_Object.extend({
         init: function(a, b) {
             var c = {};
-            c.image = "", c.framewidth = 150, c.frameheight = 75, this._super(me.GUI_Object, "init", [a, b, c])
+            c.image = "share", c.framewidth = 150, c.frameheight = 75, this._super(me.GUI_Object, "init", [a, b, c])
         },
         onClick: function(a) {
             var b = "Just made " + game.data.steps + " steps on Clumsy Bird! Can you beat me? Try online here!",
@@ -207,7 +207,7 @@ var BackgroundLayer = me.ImageLayer.extend({
     Tweet = me.GUI_Object.extend({
         init: function(a, b) {
             var c = {};
-            c.image = "", c.framewidth = 152, c.frameheight = 75, this._super(me.GUI_Object, "init", [a, b, c])
+            c.image = "tweet", c.framewidth = 152, c.frameheight = 75, this._super(me.GUI_Object, "init", [a, b, c])
         },
         onClick: function(a) {
             var b = "Just made " + game.data.steps + " steps on Clumsy Bird! Can you beat me? Try online here!",
