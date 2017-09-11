@@ -232,7 +232,7 @@ game.TitleScreen = me.ScreenObject.extend({
         }, 1e3).easing(me.Tween.Easing.Exponential.InOut).start();
         this.ground1 = me.pool.pull("ground", 0, me.video.renderer.getHeight() - 96), this.ground2 = me.pool.pull("ground", me.video.renderer.getWidth(), me.video.renderer.getHeight() - 96), me.game.world.addChild(this.ground1, 11), me.game.world.addChild(this.ground2, 11), me.game.world.addChild(new(me.Renderable.extend({
             init: function() {
-                this._super(me.Renderable, "init", [0, 0, 100, 100]), this.text = me.device.touch ? "Tap to start" : 'PRESS SPACE OR CLICK LEFT MOUSE BUTTON TO START', this.font = new me.Font("gamefont", 20, "#000")
+                this._super(me.Renderable, "init", [0, 0, 100, 100]), this.text = me.device.touch ? "Tap to start" : 'PRESS SPACE OR CLICK LEFT MOUSE BUTTON TO START', this.font = new me.Font("gamefont", 20, "#F78D37")
             },
             draw: function(a) {
                 var b = this.font.measureText(a, this.text),
