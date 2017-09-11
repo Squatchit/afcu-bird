@@ -236,7 +236,7 @@ game.TitleScreen = me.ScreenObject.extend({
             },
             draw: function(a) {
                 var b = this.font.measureText(a, this.text),
-                    c = me.game.viewport.width / 2 - b.width / 1,
+                    c = me.game.viewport.width / 2 - b.width / 2,
                     d = me.game.viewport.height / 2 + 50;
                 this.font.draw(a, this.text, c, d)
             }
