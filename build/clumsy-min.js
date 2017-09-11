@@ -228,11 +228,11 @@ game.TitleScreen = me.ScreenObject.extend({
             image: a
         }), me.game.world.addChild(this.logo, 10);
         me.pool.pull("me.Tween", this.logo.pos).to({
-            y: me.game.viewport.height / 2 - 275
+            y: me.game.viewport.height / 2 - 225
         }, 1e3).easing(me.Tween.Easing.Exponential.InOut).start();
         this.ground1 = me.pool.pull("ground", 0, me.video.renderer.getHeight() - 96), this.ground2 = me.pool.pull("ground", me.video.renderer.getWidth(), me.video.renderer.getHeight() - 96), me.game.world.addChild(this.ground1, 11), me.game.world.addChild(this.ground2, 11), me.game.world.addChild(new(me.Renderable.extend({
             init: function() {
-                this._super(me.Renderable, "init", [0, 0, 100, 100]), this.text = me.device.touch ? "Tap to start" : 'TAP THE SPACE BAR TO START \n										 Keep tapping it to help our eagle stay afloat', this.font = new me.Font("gamefont", 20, "#000")
+                this._super(me.Renderable, "init", [0, 0, 100, 100]), this.text = me.device.touch ? "Tap to start" : 'PRESS SPACE OR CLICK LEFT MOUSE BUTTON TO START \n											PRESS "M" TO MUTE SOUND', this.font = new me.Font("gamefont", 20, "#000")
             },
             draw: function(a) {
                 var b = this.font.measureText(a, this.text),
